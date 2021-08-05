@@ -1,31 +1,42 @@
 import React from 'react';
 
-const NavBar = () => {
+const Navbar = () => {
   return (
-    <>
-      <div className='fixed top-8 right-8 z-20'>
-        <div
-          className='
-            flex flex-col flex-nowrap
-            items-end
-            cursor-pointer
-          '
-        >
-          <div className='bg-white w-8 h-1 my-0.5 shadow'></div>
-          <div className='bg-white w-4 h-1 my-0.5 shadow'></div>
-          <div className='bg-white w-6 h-1 my-0.5 shadow'></div>
-        </div>
+    <div className='w-full top-0 left-0 flex bg-gray z-50 fixed justify-between items-center pt-1 text-white'>
+      <div id='logo' className='flex flex-row items-end ml-4 cursor-pointer'>
+        <a className='font-block1 text-5xl'>Sebastian Strand</a>
+        <a className='font-block2 text-3xl mx-1'>Web Developer</a>
       </div>
-
-      <div className='transform translate-x-96 w-96 pr-6 flex flex-col justify-center items-end fixed top-0 right-0 h-screen z-10 bg-gray-200'>
-        <a className='my-2'>Nosotros</a>
-        <a className='my-2'>Marcas</a>
-        <a className='my-2'>Trabajo</a>
-        <a className='my-2'>Contact</a>
-        <a className='my-2'>Link</a>
-      </div>
-    </>
+      <nav className='text-4xl font-sunset'>
+        <ol className='flex flex-row mx-4'>
+          <button
+            id='home-link'
+            className='mx-4 cursor-pointer focus:underline hover:underline'
+          >
+            Home
+          </button>
+          <button
+            id='about-link'
+            className='mx-4 cursor-pointer focus:underline hover:underline'
+          >
+            About
+          </button>
+          <button
+            id='projects-link'
+            className='mx-4 cursor-pointer focus:underline hover:underline'
+          >
+            Projects
+          </button>
+          <button
+            id='contact-link'
+            className='mx-4 cursor-pointer focus:underline hover:underline'
+          >
+            Contact
+          </button>
+        </ol>
+      </nav>
+    </div>
   );
 };
 
-export default NavBar;
+export default Navbar;

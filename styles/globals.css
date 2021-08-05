@@ -4,32 +4,86 @@
 
 @layer base {
   @font-face {
-    font-family: 'BowlbyOneSC';
-    font-weight: 400;
-    src: url('../public/fonts/BowlbyOneSC.woff') format('woff'),
-      url('../public/fonts/BowlbyOneSC.woff2') format('woff2');
+    font-family: 'BlocpartyRegular';
+    src: url('./fonts/BlocpartyRegular.woff') format('woff'),
+      url('./fonts/BlocpartyRegular.woff2') format('woff2');
   }
+  @font-face {
+    font-family: 'BlocpartyOutlineRegular';
+    src: url('./fonts/BlocpartyOutlineRegular.woff') format('woff'),
+      url('./fonts/BlocpartyOutlineRegular.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Gamer';
+    src: url('./fonts/Gamer.woff') format('woff'),
+      url('./fonts/Gamer.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'blzee';
+    src: url('./fonts/blzee.woff') format('woff'),
+      url('./fonts/blzee.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'piantato';
+    src: url('./fonts/Piantato.woff') format('woff'),
+      url('./fonts/Piantato.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'sunset';
+    src: url('./fonts/Sunset.woff') format('woff'),
+      url('./fonts/Sunset.woff2') format('woff2');
+  }
+
   body {
     overflow-x: hidden;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
+  @keyframes movement {
+    0% {
+      transform: translate(0, 0);
+    }
+    25% {
+      transform: translate(-100vw, -100vh);
+    }
+    50% {
+      transform: translate(-100vw, 0);
+    }
+    75% {
+      transform: translate(0, -100vh);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
 }
 
 @layer utilities {
-  .perspective {
-    perspective: 2000px;
-  }
-  .snap-container {
-    overflow-y: scroll;
-    scroll-snap-type: mandatory;
-    scroll-snap-points-y: repeat(100vh);
-    scroll-snap-type: y mandatory;
+  .gradient-circle {
+    background: radial-gradient(#2b2b2b, #1a1a1a);
     height: 100vh;
     width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
   }
-  .snap-item {
-    scroll-snap-align: start;
+  .open-section {
+    width: 100%;
+  }
+  .closed-section {
+    width: 90px;
+  }
+  .bookmark {
+    height: 100%;
+    width: 90px;
+  }
+  .bookmark-container {
+    width: calc(100% - 360px);
+    position: absolute;
+  }
+  .bookmark-link {
+    text-orientation: mixed;
+    writing-mode: vertical-rl;
   }
 }
