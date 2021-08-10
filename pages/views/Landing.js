@@ -10,11 +10,11 @@ const Landing = (props) => {
         onClick={() => props.openView('landing')}
         className='bg-purple bookmark'
       >
-        <a className='bookmark-link text-5xl font-sunset cursor-pointer m-4'>
+        <a className='bookmark-link text-5xl font-sunset cursor-pointer m-4 text-white'>
           Welcome
         </a>
       </div>
-      <div className='w-full h-full bg-gray-800 flex flex-col font-mono text-4xl'>
+      <div className='w-full h-full dark:bg-gray-800 bg-gray-200 flex flex-col font-mono text-4xl'>
         <div className='w-full bg-purple h-2'></div>
         {/* main body of the section */}
         <div className='w-full p-28 overflow-hidden'>
@@ -31,13 +31,13 @@ const Landing = (props) => {
               href='./cv-english.pdf'
               download='CV Sebastian Strand'
               target='_blank'
-              className='mr-12 pt-3 pb-2 px-8 bg-gray-800 hover:bg-darkOrange transform transition-all ring-4 rounded ring-white'
+              className='mr-12 pt-3 pb-2 px-8 bg-gray-200 hover:bg-darkOrange ring-black dark:bg-gray-800 dark:hover:bg-darkOrange transform transition-all ring-4 rounded dark:ring-white'
             >
               Download CV
             </a>
             <button
               onClick={() => props.openView('contact')}
-              className='pt-3 pb-2 px-8 bg-gray-800 hover:bg-darkYellow transform transition-all ring-4 rounded ring-white'
+              className='pt-3 pb-2 px-8 dark:bg-gray-800 bg-gray-200 hover:bg-darkYellow dark:hover:bg-darkYellow transform transition-all ring-4 rounded ring-black dark:ring-white'
             >
               Get in touch
             </button>

@@ -10,17 +10,17 @@ const Contact = (props) => {
         onClick={() => props.openView('contact')}
         className='bg-darkYellow bookmark p-4'
       >
-        <a className='bookmark-link text-5xl font-sunset cursor-pointer'>
+        <a className='bookmark-link text-5xl font-sunset cursor-pointer text-white'>
           Contact
         </a>
       </div>
-      <div className='w-full h-full bg-gray-800 flex flex-col'>
+      <div className='w-full h-full bg-gray-200 dark:bg-gray-800 flex flex-col'>
         <div className='w-full bg-darkYellow h-2'></div>
         {/* main body of the section */}
         <div className='w-full p-28 flex flex-col overflow-hidden'>
-          <h1 className='font-content text-5xl'>Get in touch!</h1>
-          <form className='font-mono'>
-            <div className='mt-4 max-w-3xl p-12 rounded-3xl ring-4 ring-white flex-col'>
+          <h1 className='text-5xl mb-8'>Get in touch!</h1>
+          <form className='font-mono text-white'>
+            <div className='mt-4 max-w-3xl p-12 rounded-xl ring-4 ring-gray-200 bg-gray-800 dark:ring-white flex-col'>
               <div className='flex flex-row'>
                 <div className='flex flex-col mr-4'>
                   <h3>Email</h3>
@@ -42,7 +42,7 @@ const Contact = (props) => {
             </div>
             <button
               type='submit'
-              className='rounded mt-12 ml-12 font-sunset text-5xl pt-3 pb-2 px-12 bg-gray-800 hover:bg-darkYellow transform transition-all ring-4 ring-white'
+              className='rounded-lg mt-12 font-sunset text-5xl pt-3 pb-2 px-12 bg-gray-800 dark:hover:text-white dark:hover:bg-darkYellow hover:text-darkYellow transform transition-all ring-4 ring-gray-200 dark:ring-white'
             >
               Send
             </button>

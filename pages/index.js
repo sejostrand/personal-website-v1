@@ -22,11 +22,16 @@ export default function Home() {
   }, [refresh]);
 
   useEffect(() => {
-    if (window.localStorage.theme == null) {
-      window.localStorage.setItem('theme', 'dark');
+    if (
+      window.localStorage.theme === 'dark' ||
+      (!('theme' in window.localStorage) &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      document.documentElement.classList.add('dark');
     } else {
-      setTheme(window.localStorage.theme);
+      document.documentElement.classList.remove('dark');
     }
+    setTheme(window.localStorage.theme);
   }, [refresh]);
 
   const openView = (id) => {
@@ -57,14 +62,14 @@ export default function Home() {
   };
 
   return (
-    <div className='w-full h-screen relative flex flex-col '>
+    <div className='w-full h-screen relative flex flex-col'>
       <Header
         theme={theme}
         toggleTheme={toggleTheme}
         language={language}
         toggleLanguage={toggleLanguage}
       />
-      <div className='flex flex-row w-full text-white'>
+      <div className='flex flex-row w-full text-black dark:text-white'>
         <Landing openView={openView} theme={theme} />
         <About openView={openView} language={language} />
         <Projects openView={openView} language={language} />
