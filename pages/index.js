@@ -9,23 +9,25 @@ import Footer from './components/Footer';
 
 export default function Home() {
   const [view, setView] = useState('landing');
+  const [theme, setTheme] = useState('');
+  const [language, setLanguage] = useState('');
+  const [refresh, setRefresh] = useState(false);
 
-  // const redirect_uri = 'http://localhost:3000';
-  // const clientId = '6231f7bb0f2f402e82ecc45d4daee27d';
-  // const clientSecret = '581ff199ca0a43478b24e524d775901c';
-  // const AUTHORIZE = 'https://accounts.spotify.com/authorize';
+  useEffect(() => {
+    if (window.localStorage.language == null) {
+      window.localStorage.setItem('language', 'english');
+    } else {
+      setLanguage(window.localStorage.language);
+    }
+  }, [refresh]);
 
-  // const requestAuthorization = () => {
-
-  //   let url = AUTHORIZE;
-  //   url += '?client_id=' + clientId;
-  //   url += '&response_type=code';
-  //   url += '&redirect_uri=' + encodeURI(redirect_uri);
-  //   url += '&show_dialog=true';
-  //   url += '&scope=user--top-read';
-  //   console.log(url);
-  // };
-  // requestAuthorization();
+  useEffect(() => {
+    if (window.localStorage.theme == null) {
+      window.localStorage.setItem('theme', 'dark');
+    } else {
+      setTheme(window.localStorage.theme);
+    }
+  }, [refresh]);
 
   const openView = (id) => {
     let currentView = document.getElementsByClassName('open-section')[0];
@@ -36,14 +38,37 @@ export default function Home() {
     setView(id);
   };
 
+  const toggleTheme = () => {
+    if (theme == 'dark') {
+      window.localStorage.setItem('theme', 'light');
+    } else {
+      window.localStorage.setItem('theme', 'dark');
+    }
+    setRefresh(!refresh);
+  };
+
+  const toggleLanguage = () => {
+    if (language == 'english') {
+      window.localStorage.setItem('language', 'spanish');
+    } else {
+      window.localStorage.setItem('language', 'english');
+    }
+    setRefresh(!refresh);
+  };
+
   return (
     <div className='w-full h-screen relative flex flex-col '>
-      <Header />
-      <div className='flex flex-row w-full justify-end text-white'>
-        <Landing openView={openView} />
-        <About openView={openView} />
-        <Projects openView={openView} />
-        <Contact openView={openView} />
+      <Header
+        theme={theme}
+        toggleTheme={toggleTheme}
+        language={language}
+        toggleLanguage={toggleLanguage}
+      />
+      <div className='flex flex-row w-full text-white'>
+        <Landing openView={openView} theme={theme} />
+        <About openView={openView} language={language} />
+        <Projects openView={openView} language={language} />
+        <Contact openView={openView} language={language} />
       </div>
       <Footer />
     </div>

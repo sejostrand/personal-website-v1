@@ -57,30 +57,36 @@
       transform: translate(0, 0);
     }
   }
+  @keyframes blink-animation {
+    to {
+      visibility: hidden;
+    }
+  }
+  @-webkit-keyframes blink-animation {
+    to {
+      visibility: hidden;
+    }
+  }
 }
 
 @layer utilities {
-  .gradient-circle {
-    background: radial-gradient(#2b2b2b, #1a1a1a);
-    height: 100vh;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
+  .blink {
+    animation: blink-animation 1.4s steps(5, start) infinite;
+    -webkit-animation: blink-animation 1.4s steps(5, start) infinite;
   }
   .open-section {
-    width: 100%;
+    max-width: 2000px;
   }
   .closed-section {
-    width: 90px;
+    max-width: 80px;
+  }
+  .section-container {
+    width: calc(100% - 240px);
+    overflow: hidden;
   }
   .bookmark {
     height: 100%;
     width: 90px;
-  }
-  .bookmark-container {
-    width: calc(100% - 360px);
-    position: absolute;
   }
   .bookmark-link {
     text-orientation: mixed;

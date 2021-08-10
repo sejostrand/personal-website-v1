@@ -4,20 +4,20 @@ const Contact = (props) => {
   return (
     <div
       id='contact'
-      className='relative flex flex-row h-full closed-section overflow-hidden transition-all ease-in-out duration-300'
+      className='relative flex flex-row h-full closed-section transition-all ease-in-out duration-300 section-container'
     >
       <div
         onClick={() => props.openView('contact')}
         className='bg-darkYellow bookmark p-4'
       >
-        <a className='bookmark-link text-5xl text-white font-sunset cursor-pointer'>
+        <a className='bookmark-link text-5xl font-sunset cursor-pointer'>
           Contact
         </a>
       </div>
       <div className='w-full h-full bg-gray-800 flex flex-col'>
         <div className='w-full bg-darkYellow h-2'></div>
         {/* main body of the section */}
-        <div className='w-full p-28 flex flex-col'>
+        <div className='w-full p-28 flex flex-col overflow-hidden'>
           <h1 className='font-content text-5xl'>Get in touch!</h1>
           <form className='font-mono'>
             <div className='mt-4 max-w-3xl p-12 rounded-3xl ring-4 ring-white flex-col'>

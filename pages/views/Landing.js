@@ -4,24 +4,27 @@ const Landing = (props) => {
   return (
     <div
       id='landing'
-      className='relative flex flex-row h-full open-section overflow-hidden transition-all ease-in-out duration-300'
+      className='open-section relative flex flex-row transition-all ease-in-out duration-300 section-container'
     >
       <div
         onClick={() => props.openView('landing')}
-        className='bg-purple bookmark p-4'
+        className='bg-purple bookmark'
       >
-        <a className='bookmark-link text-5xl font-sunset cursor-pointer mt-2'>
+        <a className='bookmark-link text-5xl font-sunset cursor-pointer m-4'>
           Welcome
         </a>
       </div>
       <div className='w-full h-full bg-gray-800 flex flex-col font-mono text-4xl'>
         <div className='w-full bg-purple h-2'></div>
         {/* main body of the section */}
-        <div className='w-full p-28'>
+        <div className='w-full p-28 overflow-hidden'>
           <div>
             <p className='text-5xl'>Hi, my name is Sebastian Strand.</p>
-            <p className='pt-24'>I like building things,</p>
-            <p className='pl-24 pt-12'>...especially on the web.</p>
+            <p className='pt-24'>I like building things</p>
+            <p className='pl-24 pt-12'>
+              ...that go on the Web
+              <span className='blink'>&#x25AE;</span>
+            </p>
           </div>
           <div className='flex flex-row text-3xl font-sunset pt-24'>
             <a
